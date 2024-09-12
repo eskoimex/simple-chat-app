@@ -26,6 +26,17 @@ This is a simple chat application designed to handle messages between customers 
 
 - Sending a Message After Marking Customer Unsatisfied: Once a customer is marked as unsatisfied (e.g., by sending "instantqueue"), they can still continue sending messages, but their satisfaction state is tracked.
 
+**The QueueService edge cases**:
+
+- Duplicate Customer in Queue: The same customer cannot be added to the queue more than once. If an attempt is made to add the same customer, an error is thrown.
+
+- Invalid Customer ID: The service handles invalid customer IDs (e.g., null, empty string, or whitespace) - and throws an error to ensure only valid customers are added.
+
+- Queue Overflow: The queue can have a maximum size (set to 1000 by default). If the queue is full, the service throws an error, preventing any further additions.
+
+- Empty Queue: If no customers are in the queue, calling getQueue() will return an empty array instead of causing errors.
+
+
 ### Trade-offs:
 - I opted for an in-memory approach to keep things simple and meet the requirements.
 - No real database or external API interactions, as per the task.
