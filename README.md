@@ -12,7 +12,7 @@ This is a simple chat application designed to handle messages between customers 
 - **Scalability**: The design is simple, but it's modular and can be extended easily.
 
 ### Trade-offs:
-- We opted for an in-memory approach to keep things simple and meet the requirements.
+- I opted for an in-memory approach to keep things simple and meet the requirements.
 - No real database or external API interactions, as per the task.
 
 ### Running Tests:
