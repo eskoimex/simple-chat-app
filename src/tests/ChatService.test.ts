@@ -1,10 +1,14 @@
+
 import { ChatService } from "../services/ChatService";
+import { QueueService } from "../services/QueueService"; // Import QueueService
 
 describe("ChatService", () => {
   let chatService: ChatService;
+  let queueService: QueueService; // Declare a QueueService instance
 
   beforeEach(() => {
     chatService = new ChatService();
+    queueService = new QueueService(); // Initialize QueueService
   });
 
   it("should send and retrieve messages for a valid customer", () => {
@@ -14,6 +18,21 @@ describe("ChatService", () => {
     const chatHistory = chatService.getChatHistory("customer1");
     expect(chatHistory[0].content).toBe("Hello!");
     expect(chatHistory[1].content).toBe("How are you?");
+  });
+
+  it('should mark customer as unsatisfied and add to queue when "instantqueue" is sent', () => {
+    const customerId = "customer2";
+
+    chatService.sendMessage(customerId, "instantqueue");
+    chatService.markCustomerUnsatisfied(customerId);
+    queueService.addToQueue(customerId);
+
+    const customer = chatService.customers.get(customerId);
+    expect(customer?.satisfiedWithBot).toBe(false);
+
+    const queue = queueService.getQueue();
+    expect(queue.length).toBe(1);
+    expect(queue[0].customerId).toBe(customerId);
   });
 
   it("should throw error when sending message with empty content", () => {
