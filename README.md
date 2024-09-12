@@ -49,8 +49,8 @@ This is a simple chat application designed to handle messages between customers 
 - Single Unsatisfied Customer: If there is only one customer and they are marked as unsatisfied, the satisfaction rate should return 0%.
 
 ### Trade-offs:
-- I opted for an in-memory approach to keep things simple and meet the requirements.
-- No real database or external API interactions, as per the task.
+- The current implementation uses an in-memory data structure, meaning data is lost when the application stops. This was a deliberate trade-off to simplify the solution and focus on functionality.
+- No real database or external API interactions were included, as per the requirements. However, the design is modular and can be extended to include these features later if needed.
 
 ### Running Tests:
 To run the app, tests, install dependencies and use the following commands:
