@@ -12,7 +12,7 @@ This is a simple chat application designed to handle messages between customers 
 - **Scalability**: The design is simple, but it's modular and can be extended easily.
 
 ### Edge Cases Considered:
-- **The ChatService edge cases**:
+**The ChatService edge cases**:
 
 - Non-existent Customer: Methods such as getChatHistory, getTotalMessageCount, and markCustomerUnsatisfied gracefully handle scenarios where the customer ID does not exist.
 
