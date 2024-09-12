@@ -36,6 +36,17 @@ This is a simple chat application designed to handle messages between customers 
 
 - Empty Queue: If no customers are in the queue, calling getQueue() will return an empty array instead of causing errors.
 
+**The StatService edge cases**:
+
+- No Customers: If there are no customers in the chat service, the satisfaction rate should return 0% to avoid division by zero.
+
+- All Customers Unsatisfied: If all customers are marked as unsatisfied, the satisfaction rate should be 0%.
+
+- All Customers Satisfied: If all customers are satisfied, the satisfaction rate should be 100%.
+
+- Mixed Satisfaction: The service correctly calculates the satisfaction rate when there are some satisfied customers and some unsatisfied customers.
+
+- Single Unsatisfied Customer: If there is only one customer and they are marked as unsatisfied, the satisfaction rate should return 0%.
 
 ### Trade-offs:
 - I opted for an in-memory approach to keep things simple and meet the requirements.
