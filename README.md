@@ -16,8 +16,9 @@ This is a simple chat application designed to handle messages between customers 
 - No real database or external API interactions, as per the task.
 
 ### Running Tests:
-To run the tests, install dependencies and use the following commands:
+To run the app, tests, install dependencies and use the following commands:
 
 ```bash
-npm install
+npm start
 npm test
+npm install
