@@ -1,11 +1,10 @@
-// src/index.ts
 import { ChatService } from "./services/ChatService";
 import { QueueService } from "./services/QueueService";
 import { StatsService } from "./services/StatsService";
 
 const chatService = new ChatService();
 const queueService = new QueueService();
-const statsService = new StatsService(chatService);
+const statsService = new StatsService(chatService, queueService);
 
 // Simulate some chat interactions
 chatService.sendMessage("customer1", "Hello, I need help with my order.");
@@ -33,3 +32,18 @@ queueService.getQueue().forEach((entry) => {
 console.log(
   `Customer Satisfaction Rate: ${statsService.getSatisfactionRate()}%`
 );
+
+
+
+// Simulate  multiple users
+chatService.sendMessage("customerA", "Hello");
+chatService.markCustomerUnsatisfied("customerA"); // Unsatisfied customer
+
+chatService.sendMessage("customerB", "Hi");
+chatService.sendMessage("customerC", "What's up?"); // Satisfied customers
+
+queueService.addToQueue("customerA"); // Add unsatisfied customer to queue
+queueService.addToQueue("customerB"); // Add satisfied customer to queue
+
+const satisfactionRate = statsService.getSatisfactionRate();
+console.log(`Satisfaction Rate: ${satisfactionRate}%`);

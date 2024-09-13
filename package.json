@@ -1,15 +1,22 @@
 {
   "name": "simple-chat-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a simple chat application designed to handle messages between customers and a bot, manage a queue for customers who request to chat with a live agent, and calculate satisfaction rates.",
   "main": "src/index.ts",
   "scripts": {
     "build": "tsc",
     "start": "ts-node src/index.ts",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "chat",
+    "queue",
+    "bot",
+    "messaging",
+    "customers",
+    "satisfaction rate"
+  ],
+  "author": "Ime Samuel",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^29.5.13",
